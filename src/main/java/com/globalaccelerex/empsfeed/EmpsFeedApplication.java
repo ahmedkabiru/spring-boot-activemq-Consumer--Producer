@@ -1,5 +1,6 @@
 package com.globalaccelerex.empsfeed;
 
+import com.globalaccelerex.empsfeed.jms.consumer.JmsConsumer;
 import com.globalaccelerex.empsfeed.jms.producer.JmsProducer;
 import com.globalaccelerex.empsfeed.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class EmpsFeedApplication implements CommandLineRunner {
 
 	@Autowired
 	JmsProducer producer;
+
+	@Autowired
+	JmsConsumer consumer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmpsFeedApplication.class, args);
@@ -30,5 +34,7 @@ public class EmpsFeedApplication implements CommandLineRunner {
 		// sending
 		producer.send(iphone7, "apple");
 		producer.send(iPadPro, "apple");
+
+		//consumer.appleReceive(iphone7,"apple");
 	}
 }

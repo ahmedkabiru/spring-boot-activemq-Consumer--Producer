@@ -16,16 +16,16 @@ import org.springframework.jms.support.converter.MessageType;
  
 @Configuration
 public class ActiveMqConnectionFactoryConfig {
- 
+
 	@Value("${jsa.activemq.broker.url}")
 	String brokerUrl;
-	
+
 	@Value("${jsa.activemq.borker.username}")
 	String userName;
-	
+
 	@Value("${jsa.activemq.borker.password}")
 	String password;
- 
+
 	/*
 	 * Initial ConnectionFactory
 	 */
@@ -37,7 +37,7 @@ public class ActiveMqConnectionFactoryConfig {
         connectionFactory.setPassword(password);
         return connectionFactory;
     }
-    
+
 	@Bean // Serialize message content to json using TextMessage
 	public MessageConverter jacksonJmsMessageConverter() {
 	    MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
@@ -45,7 +45,7 @@ public class ActiveMqConnectionFactoryConfig {
 	    converter.setTypeIdPropertyName("_type");
 	    return converter;
 	}
-    
+
     /*
      * Used for Receiving Message
      */
@@ -57,7 +57,7 @@ public class ActiveMqConnectionFactoryConfig {
         configurer.configure(factory, connectionFactory);
         return factory;
     }
- 
+
     /*
      * Used for Sending Messages.
      */

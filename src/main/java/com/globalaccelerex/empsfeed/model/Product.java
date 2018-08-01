@@ -51,7 +51,7 @@ public class Product {
     
     @Override
     public String toString() {
-    	String info = String.format("[name = %s, type = %s, company = %s]", this.name, this.type, this.getCompany().getName());
+    	String info = String.format("[name = %s, type = %s]", this.name, this.type);
     	return info;
     }
 }	

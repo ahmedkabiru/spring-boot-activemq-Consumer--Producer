@@ -14,6 +14,10 @@ public class Company {
     public Company(){
     }
     
+    public Company(String name){
+    	this.name = name;
+    }
+    
     public Company(String name, List<Product> products){
     	this.name = name;
     	this.products = products;

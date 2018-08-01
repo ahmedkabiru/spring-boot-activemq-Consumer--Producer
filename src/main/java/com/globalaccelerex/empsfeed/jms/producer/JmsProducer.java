@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
 public class JmsProducer {
 	@Autowired
 	JmsTemplate jmsTemplate;
-	
+
 	@Value("${jsa.activemq.queue.producer}")
 	String queue;
-	
+
 	public void send(Product product, String companyName){
 		jmsTemplate.convertAndSend(queue, product, new MessagePostProcessor() {
 	        public Message postProcessMessage(Message message) throws JMSException {
