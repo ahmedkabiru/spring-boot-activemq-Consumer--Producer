@@ -23,4 +23,9 @@ public class TransactionServiceImpl implements TransactionService {
     public Transaction getTransactionByTID(String de41) {
         return transactionDao.getTransactionByTID(de41);
     }
+
+    @Override
+    public Boolean checkIfTransactionExist(String de41, String trans_id) {
+        return transactionDao.checkIfTransactionExist(de41,trans_id);
+    }
 }

@@ -44,6 +44,14 @@ public class TransactionDao  implements  ITransactionDao {
         }
     }
 
+
+    @Override
+    public Boolean checkIfTransactionExist(String de41, String trans_id) {
+        String sql = "SELECT count(*) FROM tx_notifications  WHERE de41 = ? AND trans_id = ?";
+        int count = jdbcTemplate.queryForObject(sql,new Object[]{de41,trans_id},Integer.class);
+        return count != 0;
+    }
+
     @Override
     public Transaction getTransactionById(int id) {
         return null;

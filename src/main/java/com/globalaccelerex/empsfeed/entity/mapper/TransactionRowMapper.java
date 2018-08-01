@@ -16,6 +16,7 @@ public class TransactionRowMapper  implements RowMapper<Transaction> {
 
         Transaction transaction = new Transaction();
         transaction.setId(row.getInt("id"));
+        transaction.setTransId(row.getString("trans_id"));
         transaction.setDe1(row.getString("de1"));
         transaction.setDe11(row.getString("de11"));
         transaction.setDe37(row.getString("de37"));

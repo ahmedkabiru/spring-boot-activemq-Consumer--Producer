@@ -9,6 +9,7 @@ import lombok.*;
 public class Transaction {
 
     private int id;
+    private String transId;
     private String de1;
     private String de11;
     private String de37;

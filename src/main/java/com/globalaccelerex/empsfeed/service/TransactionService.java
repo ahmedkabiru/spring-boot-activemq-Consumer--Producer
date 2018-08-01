@@ -10,4 +10,6 @@ public interface TransactionService {
 
     Transaction getTransactionByTID(String de41);
 
+    Boolean checkIfTransactionExist(String de41 , String trans_id);
+
 }

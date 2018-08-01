@@ -35,6 +35,7 @@ public class EmpsFeedApplication implements CommandLineRunner {
 
 		System.out.println("Transaction List"+transactionService.getAllTransaction());
 		System.out.println("Transaction List"+transactionService.getTransactionByTID("2070AL30"));
+		System.out.println("Transaction List"+transactionService.checkIfTransactionExist("2070AL31","12345678"));
 
 	}
 }

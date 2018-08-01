@@ -13,8 +13,8 @@ public interface ITransactionDao {
     // find  transaction by terminal id and trans_id
     Transaction getTransactionByTID(String de41 );
 
-    // count transaction  by terminal id and transaction id
-    Boolean countTransaction(String de41 , String trans_id);
+    // find  transaction  by terminal id and transaction id
+    Boolean checkIfTransactionExist(String de41 , String trans_id);
 
     void addTransaction(Transaction transaction);
 
