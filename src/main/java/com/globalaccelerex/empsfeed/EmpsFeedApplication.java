@@ -1,8 +1,13 @@
 package com.globalaccelerex.empsfeed;
 
-import com.globalaccelerex.empsfeed.jms.consumer.JmsConsumer;
+
+import com.globalaccelerex.empsfeed.entity.Transaction;
 import com.globalaccelerex.empsfeed.jms.producer.JmsProducer;
-import com.globalaccelerex.empsfeed.model.Product;
+import com.globalaccelerex.empsfeed.model.Email;
+import com.globalaccelerex.empsfeed.service.TransactionService;
+import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,7 +21,9 @@ public class EmpsFeedApplication implements CommandLineRunner {
 	JmsProducer producer;
 
 	@Autowired
-	JmsConsumer consumer;
+	TransactionService transactionService;
+
+	final Logger LOG = LoggerFactory.getLogger(EmpsFeedApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmpsFeedApplication.class, args);
@@ -25,16 +32,9 @@ public class EmpsFeedApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-			/*
-		 * APPLE
-		 */
-		Product iphone7 = new Product("Iphone 7", "iphone");
-		Product iPadPro = new Product("IPadPro", "ipad");
 
-		// sending
-		producer.send(iphone7, "apple");
-		producer.send(iPadPro, "apple");
+		System.out.println("Transaction List"+transactionService.getAllTransaction());
+		System.out.println("Transaction List"+transactionService.getTransactionByTID("2070AL30"));
 
-		//consumer.appleReceive(iphone7,"apple");
 	}
 }
